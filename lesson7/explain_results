@@ -1,0 +1,23 @@
+#Explain до создания индекса:
+Aggregate  (cost=61.24..61.25 rows=1 width=8)
+  ->  Nested Loop  (cost=35.77..61.21 rows=10 width=0)
+        ->  Index Only Scan using clients_pkey on clients c  (cost=0.15..8.17 rows=1 width=4)
+              Index Cond: (id = 7)
+        ->  Hash Join  (cost=35.62..52.95 rows=10 width=4)
+              Hash Cond: (b.id = o.book_id)
+              ->  Seq Scan on books b  (cost=0.00..15.80 rows=580 width=4)
+              ->  Hash  (cost=35.50..35.50 rows=10 width=8)
+                    ->  Seq Scan on orders o  (cost=0.00..35.50 rows=10 width=8)
+                          Filter: (client_id = 7)
+
+#Explain после создания индекса
+Aggregate  (cost=45.06..45.07 rows=1 width=8)
+  ->  Nested Loop  (cost=1.40..45.04 rows=10 width=0)
+        ->  Index Only Scan using clients_pkey on clients c  (cost=0.15..8.17 rows=1 width=4)
+              Index Cond: (id = 7)
+        ->  Hash Join  (cost=1.25..36.77 rows=10 width=4)
+              Hash Cond: (o.book_id = b.id)
+              ->  Seq Scan on orders o  (cost=0.00..35.50 rows=10 width=8)
+                    Filter: (client_id = 7)
+              ->  Hash  (cost=1.11..1.11 rows=11 width=4)
+                    ->  Seq Scan on books b  (cost=0.00..1.11 rows=11 width=4)

@@ -1,0 +1,23 @@
+#!/bin/bash
+# Скрипт создания пользователя и пароля
+#Работает
+username=student_01
+password=student_01
+
+scriptPath="/home/vagrant/kr8182/lesson8/"
+logFile="/var/log/Launch_Scripts_adduser.log"
+
+if [ $(id -u) -eq 0 ]; then
+	egrep "^$username" /etc/passwd >/dev/null
+	if [ $? -eq 0 ]; then
+		echo "$username exists!" >> $logFile
+		exit 1
+	else
+		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+		useradd -m -p "$pass" "$username"
+		[ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!" >> $logFile
+	fi
+else
+	echo "Only root may add a user to the system." >> $logFile
+	exit 2
+fi

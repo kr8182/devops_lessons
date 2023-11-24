@@ -1,0 +1,18 @@
+- hosts: serv
+  tasks:
+    - name: Install java using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - openjdk-17-jre
+    - name: Install maven using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven

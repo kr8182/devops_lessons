@@ -1,0 +1,34 @@
+- hosts: localhost
+  tasks:
+    - name: Install nginx using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - nginx
+    - name: Install maven using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven
+    - name: Install postgres12 using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - postgresql-12
+    - name: Install java using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - openjdk-17-jre

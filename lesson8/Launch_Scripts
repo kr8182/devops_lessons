@@ -1,0 +1,31 @@
+#!/bin/bash
+scriptPath="/home/vagrant/kr8182/lesson8"
+logFile="/var/log/Launch_Scripts_all.log"
+
+echo "start of script installing_comp-$(date)" >> $logFile
+cd $scriptPath
+sudo /bin/bash installing_comp
+wait
+echo "end of script installing_comp-$(date)" >> $logFile
+
+echo "start of scriptbuild_app_script-$(date)" >> $logFile
+sudo /bin/bash build_app_script
+wait
+echo "end of build_app_script-$(date)" >> $logFile
+
+
+echo "start of adduser_script-$(date)" >> $logFile
+sudo /bin/bash adduser
+wait
+echo "end of adduser_script-$(date)" >> $logFile
+
+
+echo "start of migration_db_script-$(date)" >> $logFile
+sudo /bin/bash migration_db_script
+wait
+echo "end of migration_db_script-$(date)" >> $logFile
+
+
+echo "start of launch_app_script-$(date)" >> $logFile
+sudo /bin/bash launch_app_script
+echo "end of launch_app_script-$(date)" >> $logFile

@@ -1,0 +1,16 @@
+[Unit] 
+Description=Hello World Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/helloworldd start
+ExecStop=/usr/local/sbin/helloworldd stop
+TimeoutStopSec=infinity
+
+StandardOutput=append:/var/log/helloworldd.log
+StandardError=append:/var/log/helloworldd.log
+
+
+[Install]
+WantedBy=multi-user.target

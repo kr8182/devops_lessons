@@ -1,0 +1,52 @@
+start of script installing_comp-Sat Nov  4 11:03:23 UTC 2023
+E: The repository 'https://apt.releases.hashicorp.com focal Release' no longer has a Release file.
+E: Unable to locate package jdk
+E: Unable to locate package postgres
+end of script installing_comp-Sat Nov  4 11:03:30 UTC 2023
+start of scriptbuild_app_script-Sat Nov  4 11:03:30 UTC 2023
+end of build_app_script-Sat Nov  4 11:03:33 UTC 2023
+start of adduser_script-Sat Nov  4 11:03:33 UTC 2023
+end of adduser_script-Sat Nov  4 11:03:33 UTC 2023
+start of migration_db_script-Sat Nov  4 11:03:33 UTC 2023
+cp: invalid option -- 'y'
+Try 'cp --help' for more information.
+cp: invalid option -- 'y'
+Try 'cp --help' for more information.
+
+Usage:
+ su [options] [-] [<user> [<argument>...]]
+
+Change the effective user ID and group ID to that of <user>.
+A mere - implies -l.  If <user> is not given, root is assumed.
+
+Options:
+ -m, -p, --preserve-environment      do not reset environment variables
+ -w, --whitelist-environment <list>  don't reset specified variables
+
+ -g, --group <group>             specify the primary group
+ -G, --supp-group <group>        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command <command>         pass a single command to the shell with -c
+ --session-command <command>     pass a single command to the shell with -c
+                                   and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell <shell>             run <shell> if /etc/shells allows it
+ -P, --pty                       create a new pseudo-terminal
+
+ -h, --help                      display this help
+ -V, --version                   display version
+
+For more details see su(1).
+psql: warning: extra command-line argument "if" ignored
+psql: warning: extra command-line argument "exists" ignored
+psql: warning: extra command-line argument "booksdb" ignored
+psql: error: FATAL:  Peer authentication failed for user "database"
+psql: warning: extra command-line argument "booksdb" ignored
+psql: error: FATAL:  Peer authentication failed for user "database"
+NOTICE:  drop cascades to constraint books_genre_id_fkey on table books
+NOTICE:  drop cascades to constraint books_author_id_fkey on table books
+NOTICE:  drop cascades to constraint orders_book_id_fkey on table orders
+NOTICE:  drop cascades to constraint orders_client_id_fkey on table orders
+end of migration_db_script-Sat Nov  4 11:03:33 UTC 2023
+start of launch_app_script-Sat Nov  4 11:03:33 UTC 2023

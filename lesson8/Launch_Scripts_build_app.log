@@ -1,0 +1,48 @@
+
+-----------------------------------------------------------------------------------
+|start logs for build_app_script|
+-----------------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.example:DigitalLibrary:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.projectlombok:lombok:jar -> version 1.18.26 vs (?) @ line 82, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.example:DigitalLibrary >---------------------
+[INFO] Building DigitalLibrary 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ DigitalLibrary ---
+[INFO] Copying 1 resource
+[INFO] Copying 22 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ DigitalLibrary ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ DigitalLibrary ---
+[INFO] skip non existing resourceDirectory /home/vagrant/2023-09-example/apps/webbooks/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ DigitalLibrary ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ DigitalLibrary ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ DigitalLibrary ---
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:3.0.1:repackage (repackage) @ DigitalLibrary ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.284 s
+[INFO] Finished at: 2023-11-04T11:03:33Z
+[INFO] ------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+|end logs for build_app_script|
+-----------------------------------------------------------------------------------

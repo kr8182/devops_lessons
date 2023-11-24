@@ -1,0 +1,17 @@
+#!/bin/bash
+
+scriptPath="/home/vagrant/kr8182/lesson8/"
+logFile="/var/log/Launch_Scripts_migration_db_script.log"
+nginxpath="/home/vagrant/kr8182/lesson8/configs"
+postgrespath="/home/vagrant/kr8182/lesson8/configs"
+
+sudo cp $nginxpath/nginx.conf etc/nginx/ -y >> $logFile
+sudo cp $postgrespath/postgresql.conf /etc/postgresql/12/main/ -y >> $logFile
+
+echo 1234 | su -c psql -h localhost -U postgres -W
+sudo -u postgres psql drop database if exists booksdb;
+sudo -u postgres psql create database booksdb;
+sudo -u postgres psql booksdb < /home/vagrant/2023-09-example/apps/webbooks/src/main/resources/data.sql >> $logFile
+
+
+

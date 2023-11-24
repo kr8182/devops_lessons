@@ -1,0 +1,47 @@
+vagrant@jen:/var/lib/jenkins/jobs/webbooks_pipeline/builds/8/archive/target$ java -jar DigitalLibrary-0.0.1-SNAPSHOT.jar
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-11-21T15:18:39.211Z  INFO 6635 --- [           main] w.d.DigitalLibraryApplication            : Starting DigitalLibraryApplication v0.0.1-SNAPSHOT using Java 17.0.8.1 with PID 663
+5 (/var/lib/jenkins/jobs/webbooks_pipeline/builds/8/archive/target/DigitalLibrary-0.0.1-SNAPSHOT.jar started by vagrant in /var/lib/jenkins/jobs/webbooks_pipeline/builds/8/archive/targ
+et)
+2023-11-21T15:18:39.226Z  INFO 6635 --- [           main] w.d.DigitalLibraryApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-11-21T15:18:40.180Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-21T15:18:40.182Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-11-21T15:18:40.225Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfac
+es.
+2023-11-21T15:18:40.238Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-21T15:18:40.240Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-21T15:18:40.248Z  INFO 6635 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces
+.
+2023-11-21T15:18:40.648Z  INFO 6635 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [
+org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-
+proxying)
+2023-11-21T15:18:40.685Z  INFO 6635 --- [           main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-11-21T15:18:40.952Z  INFO 6635 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-21T15:18:40.965Z  INFO 6635 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-21T15:18:40.966Z  INFO 6635 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-11-21T15:18:41.063Z  INFO 6635 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-21T15:18:41.065Z  INFO 6635 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1764 ms
+2023-11-21T15:18:41.488Z  INFO 6635 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-21T15:18:41.528Z  INFO 6635 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-11-21T15:18:41.654Z  WARN 6635 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], u
+se [jakarta.persistence.sharedCache.mode] instead
+2023-11-21T15:18:41.832Z  INFO 6635 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-11-21T15:18:42.065Z  INFO 6635 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.
+platform.internal.NoJtaPlatform]
+2023-11-21T15:18:42.073Z  INFO 6635 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-21T15:18:42.150Z  WARN 6635 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be p
+erformed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-21T15:18:43.289Z  INFO 6635 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-21T15:18:43.302Z  INFO 6635 --- [           main] w.d.DigitalLibraryApplication            : Started DigitalLibraryApplication in 4.631 seconds (process running for 5.091)
+2023-11-21T15:18:52.691Z  INFO 6635 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-21T15:18:52.692Z  INFO 6635 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-21T15:18:52.695Z  INFO 6635 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+^C2023-11-21T15:19:25.174Z  INFO 6635 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

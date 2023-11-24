@@ -1,0 +1,199 @@
+Started by user kr8182
+18:52:39 Connecting to https://api.github.com using kr8182/******
+Obtained lesson12/apps/webbooks/Jenkins-file from f0a8976cbb90acd1847da7cc64625b84030347f0
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/multibranch_webbooks_main
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+using credential 48b7c3fd-2318-489c-a476-731fa2969db4
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/multibranch_webbooks_main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/levelup-devops/kr8182.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/levelup-devops/kr8182.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials
+ > git fetch --no-tags --force --progress -- https://github.com/levelup-devops/kr8182.git +refs/heads/main:refs/remotes/origin/main # timeout=10
+Checking out Revision f0a8976cbb90acd1847da7cc64625b84030347f0 (main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f0a8976cbb90acd1847da7cc64625b84030347f0 # timeout=10
+Commit message: "Для multibranch ветки 12"
+ > git rev-list --no-walk a9b7f4f3782f50b2b3c4785cab36a8d90e5cd0ec # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: git
+using credential 48b7c3fd-2318-489c-a476-731fa2969db4
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/multibranch_webbooks_main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/levelup-devops/kr8182.git # timeout=10
+Fetching upstream changes from https://github.com/levelup-devops/kr8182.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials
+ > git fetch --tags --force --progress -- https://github.com/levelup-devops/kr8182.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f0a8976cbb90acd1847da7cc64625b84030347f0 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f0a8976cbb90acd1847da7cc64625b84030347f0 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main f0a8976cbb90acd1847da7cc64625b84030347f0 # timeout=10
+Commit message: "Для multibranch ветки 12"
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks
+[Pipeline] {
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean -DDB.url=jdbc:postgresql://192.168.56.102:5432/webbooks package
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.example:DigitalLibrary:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.projectlombok:lombok:jar -> version 1.18.26 vs (?) @ line 82, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ---------------------< com.example:DigitalLibrary >---------------------
+[INFO] Building DigitalLibrary 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ DigitalLibrary ---
+[INFO] Deleting /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/target
+[INFO]
+[INFO] --- resources:3.3.0:resources (default-resources) @ DigitalLibrary ---
+[INFO] Copying 1 resource
+[INFO] Copying 22 resources
+[INFO]
+[INFO] --- compiler:3.10.1:compile (default-compile) @ DigitalLibrary ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/target/classes
+[INFO] /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/src/main/java/web/digitallibrary/DAO/AuthorDAO.java: Some input files use or override a deprecated API.
+[INFO] /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/src/main/java/web/digitallibrary/DAO/AuthorDAO.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ DigitalLibrary ---
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/src/test/resources
+[INFO]
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ DigitalLibrary ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/target/test-classes
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ DigitalLibrary ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running web.digitallibrary.DigitalLibraryApplicationTests
+18:52:52.121 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [DigitalLibraryApplicationTests]: using SpringBootContextLoader
+18:52:52.125 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [web.digitallibrary.DigitalLibraryApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+18:52:52.126 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [web.digitallibrary.DigitalLibraryApplicationTests]: DigitalLibraryApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:52:52.155 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [DigitalLibraryApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+18:52:52.235 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/target/classes/web/digitallibrary/DigitalLibraryApplication.class]
+18:52:52.237 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration web.digitallibrary.DigitalLibraryApplication for test class web.digitallibrary.DigitalLibraryApplicationTests
+18:52:52.382 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [DigitalLibraryApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+18:52:52.384 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [DigitalLibraryApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-11-24T18:52:52.804Z  INFO 10471 --- [           main] w.d.DigitalLibraryApplicationTests       : Starting DigitalLibraryApplicationTests using Java 17.0.8.1 with PID 10471 (started by jenkins in /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks)
+2023-11-24T18:52:52.807Z  INFO 10471 --- [           main] w.d.DigitalLibraryApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2023-11-24T18:52:53.873Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-24T18:52:53.882Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-11-24T18:52:53.914Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+2023-11-24T18:52:53.940Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-24T18:52:53.949Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-24T18:52:53.962Z  INFO 10471 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2023-11-24T18:52:54.533Z  INFO 10471 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-24T18:52:54.562Z  INFO 10471 --- [           main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-11-24T18:52:55.165Z  INFO 10471 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-24T18:52:55.211Z  INFO 10471 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-11-24T18:52:55.370Z  WARN 10471 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-11-24T18:52:55.776Z  INFO 10471 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-11-24T18:52:56.051Z  INFO 10471 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-24T18:52:56.072Z  INFO 10471 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-24T18:52:56.406Z  WARN 10471 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-24T18:52:57.767Z  INFO 10471 --- [           main] w.d.DigitalLibraryApplicationTests       : Started DigitalLibraryApplicationTests in 5.328 seconds (process running for 6.581)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.162 s - in web.digitallibrary.DigitalLibraryApplicationTests
+2023-11-24T18:52:58.199Z  INFO 10471 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.3.0:jar (default-jar) @ DigitalLibrary ---
+[INFO] Building jar: /var/lib/jenkins/workspace/multibranch_webbooks_main/lesson12/apps/webbooks/target/DigitalLibrary-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- spring-boot:3.0.1:repackage (repackage) @ DigitalLibrary ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.526 s
+[INFO] Finished at: 2023-11-24T18:52:59Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Artifacts)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in /var/lib/jenkins/jobs/multibranch_webbooks/branches/main
+[Pipeline] {
+[Pipeline] archiveArtifacts
+Archiving artifacts
+‘builds/*.jar’ doesn’t match anything: ‘builds’ exists but not ‘builds/*.jar’
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: No artifacts found that match the file pattern "builds/*.jar". Configuration error?
+
+GitHub has been notified of this commit’s build result
+
+Finished: FAILURE

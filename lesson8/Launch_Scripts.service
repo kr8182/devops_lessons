@@ -1,0 +1,16 @@
+[Unit] 
+Description=launch_scripts_service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/Launch_Scripts start
+ExecStop=/usr/local/sbin/Launch_Scripts stop
+TimeoutStopSec=infinity
+
+StandardOutput=append:/var/log/Launch_Scripts.log
+StandardError=append:/var/log/Launch_Scripts.log
+
+
+[Install]
+WantedBy=multi-user.target

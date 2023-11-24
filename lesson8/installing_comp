@@ -1,0 +1,34 @@
+#!/bin/sh
+#Работает
+logFile="/var/log/Launch_Scripts_install_comp.log"
+
+echo "------------------------start of apt-get-update-------------------------------" >> $logFile
+sudo apt-get update >> $logFile
+wait
+echo "------------------------end of apt-get-update-------------------------------" >> $logFile
+
+echo "------------------------start of install maven-------------------------------" >> $logFile
+sudo apt-get install maven -y >> $logFile
+wait
+echo "------------------------end of install maven-------------------------------" >> $logFile
+
+echo "------------------------start of install jdk-------------------------------" >> $logFile
+sudo apt-get install jdk -y >> $logFile
+wait
+echo "------------------------end of install jdk-------------------------------" >> $logFile
+
+echo "------------------------start of install postgres-------------------------------" >> $logFile
+sudo apt-get install postgres -y >> $logFile
+wait
+echo "------------------------end of install postgres-------------------------------" >> $logFile
+
+echo "------------------------start of install spring-------------------------------" >> $logFile
+sudo apt-get install spring -y >> $logFile
+wait
+echo "------------------------end of install spring-------------------------------" >> $logFile
+
+echo "------------------------start of install nginx-------------------------------" >> $logFile
+sudo apt-get install nginx -y >> $logFile
+wait
+echo "------------------------end of install nginx-------------------------------" >> $logFile
+#etc

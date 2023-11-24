@@ -1,0 +1,162 @@
+Started by user kr8182
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/webbooks_pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+using credential 48b7c3fd-2318-489c-a476-731fa2969db4
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/webbooks_pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/levelup-devops/2023-09-example.git # timeout=10
+Fetching upstream changes from https://github.com/levelup-devops/2023-09-example.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials
+ > git fetch --tags --force --progress -- https://github.com/levelup-devops/2023-09-example.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 9bb6adeb27e6c29d2abd80e65ad424c511aa658e (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9bb6adeb27e6c29d2abd80e65ad424c511aa658e # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 9bb6adeb27e6c29d2abd80e65ad424c511aa658e # timeout=10
+Commit message: "add lesson14"
+ > git rev-list --no-walk 9bb6adeb27e6c29d2abd80e65ad424c511aa658e # timeout=10
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks
+[Pipeline] {
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean -DDB.url=jdbc:postgresql://192.168.56.102:5432/webbooks package
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.example:DigitalLibrary:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.projectlombok:lombok:jar -> version 1.18.26 vs (?) @ line 82, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] ---------------------< com.example:DigitalLibrary >---------------------
+[INFO] Building DigitalLibrary 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ DigitalLibrary ---
+[INFO] Deleting /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/target
+[INFO]
+[INFO] --- resources:3.3.0:resources (default-resources) @ DigitalLibrary ---
+[INFO] Copying 1 resource
+[INFO] Copying 22 resources
+[INFO]
+[INFO] --- compiler:3.10.1:compile (default-compile) @ DigitalLibrary ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/target/classes
+[INFO] /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/src/main/java/web/digitallibrary/DAO/ClientDAO.java: Some input files use or override a deprecated API.
+[INFO] /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/src/main/java/web/digitallibrary/DAO/ClientDAO.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ DigitalLibrary ---
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/src/test/resources
+[INFO]
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ DigitalLibrary ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/target/test-classes
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ DigitalLibrary ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running web.digitallibrary.DigitalLibraryApplicationTests
+17:37:06.567 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [DigitalLibraryApplicationTests]: using SpringBootContextLoader
+17:37:06.576 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [web.digitallibrary.DigitalLibraryApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:37:06.577 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [web.digitallibrary.DigitalLibraryApplicationTests]: DigitalLibraryApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:37:06.600 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [DigitalLibraryApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+17:37:06.681 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/target/classes/web/digitallibrary/DigitalLibraryApplication.class]
+17:37:06.683 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration web.digitallibrary.DigitalLibraryApplication for test class web.digitallibrary.DigitalLibraryApplicationTests
+17:37:06.761 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [DigitalLibraryApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+17:37:06.763 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [DigitalLibraryApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-11-20T17:37:07.056Z  INFO 10758 --- [           main] w.d.DigitalLibraryApplicationTests       : Starting DigitalLibraryApplicationTests using Java 17.0.8.1 with PID 10758 (started by jenkins in /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks)
+2023-11-20T17:37:07.058Z  INFO 10758 --- [           main] w.d.DigitalLibraryApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2023-11-20T17:37:08.022Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-20T17:37:08.023Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-11-20T17:37:08.048Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JDBC repository interfaces.
+2023-11-20T17:37:08.063Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-20T17:37:08.064Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-20T17:37:08.077Z  INFO 10758 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2023-11-20T17:37:08.471Z  INFO 10758 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-20T17:37:08.503Z  INFO 10758 --- [           main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-11-20T17:37:09.155Z  INFO 10758 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-20T17:37:09.197Z  INFO 10758 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-11-20T17:37:09.532Z  WARN 10758 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-11-20T17:37:09.724Z  INFO 10758 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-11-20T17:37:10.048Z  INFO 10758 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-20T17:37:10.059Z  INFO 10758 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-20T17:37:10.325Z  WARN 10758 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-20T17:37:11.515Z  INFO 10758 --- [           main] w.d.DigitalLibraryApplicationTests       : Started DigitalLibraryApplicationTests in 4.719 seconds (process running for 5.915)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.417 s - in web.digitallibrary.DigitalLibraryApplicationTests
+2023-11-20T17:37:11.897Z  INFO 10758 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.3.0:jar (default-jar) @ DigitalLibrary ---
+[INFO] Building jar: /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks/target/DigitalLibrary-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- spring-boot:3.0.1:repackage (repackage) @ DigitalLibrary ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.075 s
+[INFO] Finished at: 2023-11-20T17:37:13Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // dir
+Post stage
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/webbooks_pipeline/apps/webbooks
+[Pipeline] {
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

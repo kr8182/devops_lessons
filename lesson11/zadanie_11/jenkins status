@@ -1,0 +1,10 @@
+vagrant@jen:~$ sudo systemctl start jenkins
+vagrant@jen:~$ systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2023-11-19 15:26:32 UTC; 32s ago
+   Main PID: 632 (java)
+      Tasks: 51 (limit: 2324)
+     Memory: 714.5M
+     CGroup: /system.slice/jenkins.service
+             └─632 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080

@@ -1,0 +1,31 @@
+- hosts: db
+  tasks:
+    - block: # workaround, see https://stackoverflow.com/a/56558842
+        - name: PSQL installation and configuration
+          include_role:
+            name: ANXS.postgresql
+          vars:
+            postgresql_port: 5432
+            postgresql_listen_addresses: '*'
+            postgresql_users:
+              - name: postgres
+                #md51a1dc91c907325c69271ddf0c944bc72
+                pass: SCRAM-SHA-256$4096:En1EXwWCRrgFjvDuZ3m5WQ==$Bt4eGQmfMdiTeuz3ZArSBN4XOq+r4VRKW1HZIyxbhUo=:PMAr9udG0/5+5c+36BDO37XFgr/jMDoulhYVwy3haXc=
+                encrypted: yes
+            postgresql_version: 12
+            postgresql_encoding: "UTF-8"
+            postgresql_locale: "en_US.UTF-8"
+            postgresql_ctype: "en_US.UTF-8"
+            postgresql_databases:
+              - name: booksdb
+                owner: postgres
+                state: present
+            postgresql_database_schemas:
+              - database: booksdb           # database name
+                schema: clients               # schema name
+                state: present
+              - database: booksdb           # database name
+                schema: books           # schema name
+                state: present
+            ansible_python_interpreter: "/usr/bin/python3"
+      become: true

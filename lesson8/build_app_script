@@ -1,0 +1,18 @@
+#!/bin/bash
+#Работает
+
+scriptPath="/home/vagrant/2023-09-example/apps/webbooks"
+logFile="/var/log/Launch_Scripts.log"
+
+echo "" >> $logFile
+echo "-----------------------------------------------------------------------------------" >> $logFile
+echo "|start logs for build_app_script|" >> $logFile
+echo "-----------------------------------------------------------------------------------" >> $logFile
+
+cd $scriptPath
+sudo ./mvnw -DskipTests package >> $logFile
+
+echo "" >> $logFile
+echo "-----------------------------------------------------------------------------------" >> $logFile
+echo "|end logs for build_app_script|" >> $logFile
+echo "-----------------------------------------------------------------------------------" >> $logFile

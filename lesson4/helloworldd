@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function hellostart(){
+while [ 1 ]
+	do
+	echo Hello World $(date)
+	sleep 10
+done
+}
+
+function hellostop() {
+	killall $(basename $0)
+}
+
+case "$1" in
+	start)
+		hellostart
+	;;
+	stop)
+		hellostop
+	;;
+esac
