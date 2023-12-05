@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'JDK17'
+        maven 'maven_3.9.5'
+    }
+
+    environment {
+      GITHUB_REPO_CRED = credentials("48b7c3fd-2318-489c-a476-731fa2969db4")
+      GITHUB_REPO_OWNER = "kr8182"
+	  GITHUB_REPO_NAME = "devops_lessons"
+      GITHUB_REPO_URL = "https://github.com/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}.git"
+    }
+    stages {
+            stage('Checkout') {
+                steps {
+                    git branch: 'main', changelog: false, credentialsId: '48b7c3fd-2318-489c-a476-731fa2969db4', poll: false, url: env.GITHUB_REPO_URL
+                }
+            }
+
+            stage('Build') {
+                steps {
+                    // Get some code from a GitHub repository
+                    git branch: 'lesson13', credentialsId: '48b7c3fd-2318-489c-a476-731fa2969db4', url: 'https://github.com/levelup-devops/kr8182.git'
+                    dir('lesson13/apps/webbooks'){
+                        sh "mvn -Dmaven.test.failure.ignore=true clean -DDB.url=jdbc:postgresql://192.168.56.102:5432/webbooks package"
+                        }
+                    // Run Maven on a Unix agent.
+                    // To run Maven on a Windows agent, use
+                    // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                }
+            }
+
+            stage('Upload') {
+            when { expression { env.BRANCH_NAME == "main" } }
+                steps {
+                    dir('lesson13/apps/webbooks') {
+                        sh "mvn -DskipTests -s settings.xml -Dmaven.repo.local=${WORKSPACE}/.m2/repository deploy"
+                    }
+                }
+            }
+        }
+    }

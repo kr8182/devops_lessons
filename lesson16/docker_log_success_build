@@ -1,0 +1,26 @@
+vagrant@jen:~/kr8182/lesson16/apps/webbooks$ sudo docker build .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon    109MB
+Step 1/7 : FROM maven:3.8.1-openjdk-17 as builder
+ ---> eda90d27ab05
+Step 2/7 : WORKDIR /app
+ ---> Using cache
+ ---> beb0d7152ae5
+Step 3/7 : COPY . .
+ ---> Using cache
+ ---> 885c88c7e34a
+Step 4/7 : RUN mvn -DskipTests package
+ ---> Using cache
+ ---> 756378c41022
+Step 5/7 : FROM openjdk:17 as main
+ ---> 5e28ba2b4cdb
+Step 6/7 : WORKDIR /app
+ ---> Using cache
+ ---> 10539ac51075
+Step 7/7 : COPY --from=builder /app/target/digitallibrary-1.0.0-snapshot.jar .
+ ---> Using cache
+ ---> 5de82a2e8512
+Successfully built 5de82a2e8512

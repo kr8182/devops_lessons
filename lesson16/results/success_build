@@ -1,0 +1,11 @@
+Step 7/9 : COPY --from=builder /app/target/digitallibrary-1.0.0-snapshot.jar .
+ ---> 79ebac0fab66
+Step 8/9 : CMD java -jar digitallibrary-1.0.0-snapshot.jar
+ ---> Running in 7a9c2ab07454
+Removing intermediate container 7a9c2ab07454
+ ---> 66b3f51421d2
+Step 9/9 : EXPOSE 8080
+ ---> Running in 2bdfdee3f61e
+Removing intermediate container 2bdfdee3f61e
+ ---> 011c7c0b69cb
+Successfully built 011c7c0b69cb

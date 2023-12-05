@@ -22,11 +22,8 @@ pipeline {
         stage('Artifacts') {
             when { expression { env.BRANCH_NAME == "main" } }
             steps {
-                dir('apps/webbooks') {
                     // Run Maven on a Unix agent.
-                    archiveArtifacts 'target/*.jar'
-                }
-
+                    archiveArtifacts allowEmptyArchive: true, artifacts: '*.jar', followSymlinks: false
             }
         }
     }

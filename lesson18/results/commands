@@ -1,0 +1,18 @@
+Кубер развенут на ноде 192.168.56.101
+На ней же остановлен jenkins и nginx
+
+#Команада для запуска дашборда с виртуальной ноды
+kubectl proxy --address='192.168.56.101' --port=8001 --disable-filter=true
+W1204 17:26:06.254235   68165 proxy.go:177] Request filter disabled, your proxy is vulnerable to XSRF attacks, please be cautious
+Starting to serve on 192.168.56.101:8001
+
+vagrant@jen:~$ minikube version
+minikube version: v1.32.0
+commit: 8220a6eb95f0a4d75f7f2d7b14cef975f050512d
+
+vagrant@jen:~$ kubectl version
+Client Version: v1.28.4
+Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+Server Version: v1.28.3
+
+Скрин успешного запуска ниже(требуется аутентификация)
