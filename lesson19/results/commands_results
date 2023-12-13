@@ -1,0 +1,55 @@
+vagrant@jen:~/kr8182/lesson19$ kubectl get deploy --namespace=dev
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   1/1     1            1           4m42s
+
+vagrant@jen:~/kr8182/lesson19$ kubectl get service --namespace=dev
+NAME    TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+nginx   NodePort   10.101.10.102   <none>        80:32217/TCP   5m17s
+
+vagrant@jen:~/kr8182/lesson19$ kubectl get pods --namespace=dev
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-7c79c4bf97-kjggf   1/1     Running   0          5m38s
+
+vagrant@jen:~/kr8182/lesson19$ minikube addons enable ingress
+💡  ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
+You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
+    ▪ Using image registry.k8s.io/ingress-nginx/controller:v1.9.4
+    ▪ Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0
+    ▪ Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0
+🔎  Verifying ingress addon...
+🌟  The 'ingress' addon is enabled
+
+
+vagrant@jen:~/kr8182/lesson19$ minikube service --all -n dev
+|-----------|-------|-------------|---------------------------|
+| NAMESPACE | NAME  | TARGET PORT |            URL            |
+|-----------|-------|-------------|---------------------------|
+| dev       | nginx |          80 | http://192.168.49.2:32217 |
+|-----------|-------|-------------|---------------------------|
+🎉  Opening service dev/nginx in default browser...
+👉  http://192.168.49.2:32217
+
+vagrant@jen:~/kr8182/lesson19$ curl  http://192.168.49.2:32217
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>

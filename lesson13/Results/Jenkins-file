@@ -1,0 +1,9 @@
+@Library('build') _
+
+buildPipeline {
+GITHUB_REPO_CRED = credentials("48b7c3fd-2318-489c-a476-731fa2969db4")
+GITHUB_REPO_OWNER = "levelup-devops"
+GITHUB_REPO_NAME = "kr8182"
+GITHUB_REPO_URL = "https://github.com/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}.git"
+APPS_LIST_FILE = "lesson13/apps/apps.json"
+}
