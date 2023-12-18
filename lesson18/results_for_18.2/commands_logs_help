@@ -1,0 +1,45 @@
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$ kubectl get all
+NAME                                   READY   STATUS             RESTARTS        AGE
+pod/hello-world-app-0                  0/1     CrashLoopBackOff   6 (4m22s ago)   10m
+pod/hello-world-app-7d8cc5f996-kb5xm   0/1     CrashLoopBackOff   7 (14s ago)     11m
+pod/hello-world-app-7d8cc5f996-qbcq5   0/1     CrashLoopBackOff   6 (5m1s ago)    11m
+pod/hello-world-app-mhchv              0/1     CrashLoopBackOff   6 (4m39s ago)   10m
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/hello-world-app   NodePort    10.101.13.236   <none>        80:30100/TCP   7m3s
+service/kubernetes        ClusterIP   10.96.0.1       <none>        443/TCP        4d22h
+
+NAME                             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/hello-world-app   1         1         0       1            0           <none>          10m
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hello-world-app   0/2     2            0           11m
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/hello-world-app-7d8cc5f996   2         2         0       11m
+
+NAME                               READY   AGE
+statefulset.apps/hello-world-app   0/3     10m
+
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$ kubectl logs -f deploy/ -n
+error: flag needs an argument: 'n' in -n
+See 'kubectl logs --help' for usage.
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$ kubectl logs -f deploy/hello-world-app
+Found 4 pods, using pod/hello-world-app-7d8cc5f996-kb5xm
+Hello World!
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$
+
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$ curl http://192.168.49.2:30100
+curl: (7) Failed to connect to 192.168.49.2 port 30100: Connection refused
+
+vagrant@jen:~/kr8182/lesson18/results_for_18.2$ minikube service --all
+|-----------|-----------------|--------------------|---------------------------|
+| NAMESPACE |      NAME       |    TARGET PORT     |            URL            |
+|-----------|-----------------|--------------------|---------------------------|
+| default   | hello-world-app | hello-world-app/80 | http://192.168.49.2:30100 |
+|-----------|-----------------|--------------------|---------------------------|
+|-----------|------------|-------------|--------------|
+| NAMESPACE |    NAME    | TARGET PORT |     URL      |
+|-----------|------------|-------------|--------------|
+| default   | kubernetes |             | No node port |
+|-----------|------------|-------------|--------------|

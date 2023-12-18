@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hello-world-app
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-app # has to match .spec.template.metadata.labels
+  serviceName: "nginx"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: hello-world-app # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: hello-world-app
+          image: kr8182/kr8182:latest
